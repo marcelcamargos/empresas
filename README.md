@@ -9,3 +9,7 @@ Para o login usamos padrões OAuth 2.0. Na resposta de sucesso do login a api re
 Para ter acesso as demais APIS, precisamos enviar esses 3 custom headers para a API autorizar a requisição;
 Listagem de Empresas.
 Detalhamento de Empresas.
+
+TELAS CRIADAS:
+
+![](Telas/ide.png)
