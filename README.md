@@ -13,3 +13,23 @@ Detalhamento de Empresas.
 TELAS CRIADAS:
 
 ![](Telas/ide.png)
+
+ABAIXO SAO APRESENTADAS ALGUMAS TELAS DO APLICATIVO EM EXECUCAO.
+
+Primeira:
+![](Telas/tela_1_execucao.png)
+
+Segunda:
+![](Telas/tela_2_execucao.png)
+
+Terceira:
+![](Telas/tela_3_execucao.png)
+
+Quarta:
+![](Telas/tela_4_execucao.png)
+
+Quinta:
+![](Telas/tela_5_execucao.png)
+
+Sexta:
+![](Telas/tela_6_execucao.png)
