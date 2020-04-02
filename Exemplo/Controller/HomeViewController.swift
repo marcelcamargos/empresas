@@ -18,6 +18,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var labelResultadoEncontrado: UILabel!
 
+    @IBOutlet weak var semResultado: UILabel!
+    
     var authenticationAPI: EmpresaAPI?
     
     var empresas: [Enterprise] = []
@@ -34,6 +36,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.labelResultadoEncontrado.isHidden = true
+        self.semResultado.isHidden = false
+        
         let imageNameLogoHome4 = "logo_home_4.png"
         let imageLogoHome4 = UIImage(named: imageNameLogoHome4)
         imageViewLogoHome4 = UIImageView(image: imageLogoHome4!)
@@ -127,11 +132,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         }
                     }
                     
-                    self.labelResultadoEncontrado.text = "\(self.empresasPesquisadas.count) resultado (s) encontrado (s)"
+                    if(self.empresasPesquisadas.count>0) {
+                        self.labelResultadoEncontrado.isHidden = false
+                        self.labelResultadoEncontrado.text = "\(self.empresasPesquisadas.count) resultado (s) encontrado (s)"
+                        self.semResultado.isHidden = true
+                    } else {
+                        self.semResultado.isHidden = false
+                        self.labelResultadoEncontrado.isHidden = true
+                    }
                     
                 } else {
+                    self.semResultado.isHidden = false
+                    self.labelResultadoEncontrado.isHidden = true
                     self.empresasPesquisadas.removeAll()
-                    self.labelResultadoEncontrado.text = "Nenhum resultado encontrado"
                 }
 
                 self.tableView.reloadData()
