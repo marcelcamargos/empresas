@@ -14,6 +14,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var imageBack: UIImageView!
+    
+    @IBOutlet weak var labelResultadoEncontrado: UILabel!
+
     var authenticationAPI: EmpresaAPI?
     
     var empresas: [Enterprise] = []
@@ -22,13 +26,38 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let cellSpacingHeight: CGFloat = 5
     
-    @IBOutlet weak var imageBack: UIImageView!
-    
-    @IBOutlet weak var labelResultadoEncontrado: UILabel!
+    var imageViewLogoHome1: UIImageView?
+    var imageViewLogoHome2: UIImageView?
+    var imageViewLogoHome3: UIImageView?
+    var imageViewLogoHome4: UIImageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let imageNameLogoHome4 = "logo_home_4.png"
+        let imageLogoHome4 = UIImage(named: imageNameLogoHome4)
+        imageViewLogoHome4 = UIImageView(image: imageLogoHome4!)
+        imageViewLogoHome4!.frame = CGRect(x: -5, y: 70, width: 117, height: 140)
+        self.imageBack.addSubview(imageViewLogoHome4!)
+
+        let imageNameLogoHome2 = "logo_home_2.png"
+        let imageLogoHome2 = UIImage(named: imageNameLogoHome2)
+        imageViewLogoHome2 = UIImageView(image: imageLogoHome2!)
+        imageViewLogoHome2!.frame = CGRect(x: 30, y: 0, width: 258, height: 191)
+        self.imageBack.addSubview(imageViewLogoHome2!)
+
+        let imageNameLogoHome3 = "logo_home_3.png"
+        let imageLogoHome3 = UIImage(named: imageNameLogoHome3)
+        imageViewLogoHome3 = UIImageView(image: imageLogoHome3!)
+        imageViewLogoHome3!.frame = CGRect(x: 275, y: 10, width: 101, height: 125)
+        self.imageBack.addSubview(imageViewLogoHome3!)
+        
+        let imageNameLogoHome1 = "logo_home_1.png"
+        let imageLogoHome1 = UIImage(named: imageNameLogoHome1)
+        imageViewLogoHome1 = UIImageView(image: imageLogoHome1!)
+        imageViewLogoHome1!.frame = CGRect(x: 200, y: 80, width: 141, height: 125)
+        self.imageBack.addSubview(imageViewLogoHome1!)
+        
         // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil)
 
@@ -40,10 +69,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @objc func keyboardWillShow(sender: NSNotification) {
     
         self.view.frame.origin.y = -100
+        imageViewLogoHome1!.isHidden = true
+        imageViewLogoHome2!.isHidden = true
+        imageViewLogoHome3!.isHidden = true
+        imageViewLogoHome4!.isHidden = true
     }
 
     @objc func keyboardWillHide(sender: NSNotification) {
          self.view.frame.origin.y = 0 // Move view to original position
+        imageViewLogoHome1!.isHidden = false
+        imageViewLogoHome2!.isHidden = false
+        imageViewLogoHome3!.isHidden = false
+        imageViewLogoHome4!.isHidden = false
     }
     
     func hideKeyboardWhenTappedAround() {
@@ -162,4 +199,5 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
 }
