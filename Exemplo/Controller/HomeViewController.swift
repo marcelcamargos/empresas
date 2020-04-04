@@ -69,6 +69,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         self.nomeEmpresaTextField?.addTarget(self, action: #selector(searchRecordsAsPerText(_ :)), for: .editingChanged)
+        
     }
     
     @objc func keyboardWillShow(sender: NSNotification) {
